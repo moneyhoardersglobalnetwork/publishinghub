@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   80002: {
     Book: {
-      address: "0x891A36F7e807D48E1AbcdBf93626A211c5e1b9B2",
+      address: "0x9d48487e2d53d38acDEa8f2BF45A65775a612E2c",
       abi: [
         {
           inputs: [
@@ -23,7 +23,7 @@ const deployedContracts = {
             },
             {
               internalType: "uint256",
-              name: "_bookPrice",
+              name: "bookPrice_",
               type: "uint256",
             },
             {
@@ -39,6 +39,11 @@ const deployedContracts = {
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "NothingToWithdraw",
+          type: "error",
         },
         {
           anonymous: false,
@@ -107,169 +112,6 @@ const deployedContracts = {
             },
           ],
           name: "BatchMetadataUpdate",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
-          ],
-          name: "BookCoverIpfsCidSet",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "tokenName",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "symbol",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "baseURI",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "bookIpfsCid",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "address",
-              name: "creator",
-              type: "address",
-            },
-          ],
-          name: "BookCreated",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "bookIpfsCid",
-              type: "string",
-            },
-          ],
-          name: "BookIpfsCidSet",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "newPrice",
-              type: "uint256",
-            },
-          ],
-          name: "BookPriceUpdated",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "buyer",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "tokenId",
-              type: "uint256",
-            },
-          ],
-          name: "BookPurchased",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "newFee",
-              type: "uint256",
-            },
-          ],
-          name: "CreationFeeUpdated",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "maxCopies",
-              type: "uint256",
-            },
-          ],
-          name: "MaxCopiesUpdated",
           type: "event",
         },
         {
@@ -367,117 +209,8 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "bookAddresses",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [],
           name: "bookPrice",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "books",
-          outputs: [
-            {
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              internalType: "string",
-              name: "name",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "symbol",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "price",
-              type: "uint256",
-            },
-            {
-              internalType: "string",
-              name: "baseURI",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "bookIpfsCid",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
-            {
-              internalType: "address",
-              name: "creator",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "maxCopies",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "totalSupply",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "feeForCreation",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "feePercentageForPurchase",
           outputs: [
             {
               internalType: "uint256",
@@ -521,6 +254,19 @@ const deployedContracts = {
           type: "function",
         },
         {
+          inputs: [],
+          name: "getBookIpfsCoverCid",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
           inputs: [
             {
               internalType: "address",
@@ -539,59 +285,6 @@ const deployedContracts = {
               internalType: "bool",
               name: "",
               type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "maxCopies",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "minters",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "minted",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "mintedAtBlock",
-              type: "uint256",
-            },
-            {
-              internalType: "bool",
-              name: "hasMintedBefore",
-              type: "bool",
-            },
-            {
-              internalType: "uint256",
-              name: "minter_AllTime_Minted",
-              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -740,24 +433,6 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              internalType: "string",
-              name: "newIpfsCid",
-              type: "string",
-            },
-          ],
-          name: "setBookCoverIpfsCid",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
               internalType: "string",
               name: "newIpfsCid",
               type: "string",
@@ -776,17 +451,17 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "tokenId",
-              type: "uint256",
+              internalType: "string",
+              name: "newIpfsCoverCid",
+              type: "string",
             },
             {
-              internalType: "uint256",
-              name: "_maxCopies",
-              type: "uint256",
+              internalType: "address",
+              name: "author",
+              type: "address",
             },
           ],
-          name: "setMaxCopies",
+          name: "setBookIpfsCoverCid",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -845,25 +520,6 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "tokenId",
-              type: "uint256",
-            },
-          ],
-          name: "totalSupply",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
               internalType: "address",
               name: "from",
               type: "address",
@@ -893,6 +549,13 @@ const deployedContracts = {
             },
           ],
           name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -928,48 +591,8 @@ const deployedContracts = {
       },
     },
     BookFactory: {
-      address: "0xbf083dEd513f32A144627fEa9782a4d3d5fefe28",
+      address: "0x4DF39ff5C708d97Ea7808767E6a67FDEdceBC75F",
       abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_owner",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "_creationFee",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [],
-          name: "NothingToWithdraw",
-          type: "error",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
-          ],
-          name: "BookCoverIpfsCidSet",
-          type: "event",
-        },
         {
           anonymous: false,
           inputs: [
@@ -993,27 +616,15 @@ const deployedContracts = {
             },
             {
               indexed: false,
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              indexed: false,
               internalType: "string",
               name: "baseURI",
               type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "bookIpfsCid",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "address",
-              name: "creator",
-              type: "address",
             },
           ],
           name: "BookCreated",
@@ -1031,30 +642,11 @@ const deployedContracts = {
             {
               indexed: false,
               internalType: "string",
-              name: "bookIpfsCid",
+              name: "ipfsCid",
               type: "string",
             },
           ],
           name: "BookIpfsCidSet",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "newPrice",
-              type: "uint256",
-            },
-          ],
-          name: "BookPriceUpdated",
           type: "event",
         },
         {
@@ -1080,38 +672,6 @@ const deployedContracts = {
             },
           ],
           name: "BookPurchased",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "newFee",
-              type: "uint256",
-            },
-          ],
-          name: "CreationFeeUpdated",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "maxCopies",
-              type: "uint256",
-            },
-          ],
-          name: "MaxCopiesUpdated",
           type: "event",
         },
         {
@@ -1168,31 +728,6 @@ const deployedContracts = {
               name: "baseURI",
               type: "string",
             },
-            {
-              internalType: "string",
-              name: "bookIpfsCid",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
-            {
-              internalType: "address",
-              name: "creator",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "maxCopies",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "totalSupply",
-              type: "uint256",
-            },
           ],
           stateMutability: "view",
           type: "function",
@@ -1219,16 +754,6 @@ const deployedContracts = {
               name: "baseURI",
               type: "string",
             },
-            {
-              internalType: "string",
-              name: "bookIpfsCid",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "coverIpfsCid",
-              type: "string",
-            },
           ],
           name: "createBook",
           outputs: [
@@ -1243,57 +768,12 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "feeForCreation",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "feePercentageForPurchase",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
           name: "getAllBookAddresses",
           outputs: [
             {
               internalType: "address[]",
               name: "",
               type: "address[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-          ],
-          name: "getBookCoverIpfsCid",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
             },
           ],
           stateMutability: "view",
@@ -1326,12 +806,186 @@ const deployedContracts = {
               type: "address",
             },
           ],
-          name: "getBookPrice",
-          outputs: [
+          name: "purchaseBookFromAddress",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "newIpfsCid",
+              type: "string",
+            },
+          ],
+          name: "setBookIpfsCid",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    PublishingFactoryNative: {
+      address: "0x7B9f1898708D44C4E3ab7d593Af91f1825fDE2E1",
+      abi: [
+        {
+          inputs: [],
+          name: "NothingToWithdraw",
+          type: "error",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "ipfsCoverCid",
+              type: "string",
+            },
+          ],
+          name: "BookCoverIpfsCidSet",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "tokenName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "symbol",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "baseURI",
+              type: "string",
+            },
+          ],
+          name: "BookCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "ipfsCid",
+              type: "string",
+            },
+          ],
+          name: "BookIpfsCidSet",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "buyer",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
+          ],
+          name: "BookPurchased",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "newFee",
+              type: "uint256",
+            },
+          ],
+          name: "CreationFeeUpdated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          inputs: [
             {
               internalType: "uint256",
               name: "",
               type: "uint256",
+            },
+          ],
+          name: "bookAddresses",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
             },
           ],
           stateMutability: "view",
@@ -1345,27 +999,130 @@ const deployedContracts = {
               type: "address",
             },
           ],
-          name: "minters",
+          name: "books",
+          outputs: [
+            {
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "symbol",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "baseURI",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "symbol",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "bookPrice",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "baseURI",
+              type: "string",
+            },
+          ],
+          name: "createBook",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "fee",
           outputs: [
             {
               internalType: "uint256",
-              name: "minted",
+              name: "",
               type: "uint256",
             },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllBookAddresses",
+          outputs: [
             {
-              internalType: "uint256",
-              name: "mintedAtBlock",
-              type: "uint256",
+              internalType: "address[]",
+              name: "",
+              type: "address[]",
             },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
             {
-              internalType: "bool",
-              name: "hasMintedBefore",
-              type: "bool",
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
             },
+          ],
+          name: "getBookIpfsCid",
+          outputs: [
             {
-              internalType: "uint256",
-              name: "minter_AllTime_Minted",
-              type: "uint256",
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "bookAddress",
+              type: "address",
+            },
+          ],
+          name: "getBookIpfsCoverCid",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
             },
           ],
           stateMutability: "view",
@@ -1391,13 +1148,15 @@ const deployedContracts = {
               name: "bookAddress",
               type: "address",
             },
-            {
-              internalType: "uint256",
-              name: "amount",
-              type: "uint256",
-            },
           ],
-          name: "purchaseBook",
+          name: "purchaseBookFromAddress",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -1411,7 +1170,7 @@ const deployedContracts = {
             },
             {
               internalType: "string",
-              name: "newIpfsCid",
+              name: "newIpfsCoverCid",
               type: "string",
             },
           ],
@@ -1442,84 +1201,32 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "bookAddress",
+              name: "newOwner",
               type: "address",
             },
-            {
-              internalType: "uint256",
-              name: "newPrice",
-              type: "uint256",
-            },
           ],
-          name: "setBookPrice",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "newFee",
-              type: "uint256",
-            },
-          ],
-          name: "setCreationFee",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "bookAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "maxCopies",
-              type: "uint256",
-            },
-          ],
-          name: "setMaxCopies",
+          name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
           inputs: [],
-          name: "usdcToken",
-          outputs: [
-            {
-              internalType: "contract IERC20",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_beneficiary",
-              type: "address",
-            },
-            {
-              internalType: "address",
-              name: "_token",
-              type: "address",
-            },
-          ],
-          name: "withdrawToken",
+          name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
       ],
-      inheritedFunctions: {},
+      inheritedFunctions: {
+        owner: "@openzeppelin/contracts/access/Ownable.sol",
+        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+      },
     },
     YourContract: {
       address: "0xFCdAF980559832EBdddc08E2B1BAD891B5A32855",

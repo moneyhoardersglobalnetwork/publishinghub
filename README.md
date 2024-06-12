@@ -1,10 +1,12 @@
 # Decentralized Digital Book Publishing and Market Place
-
+actively in development
 <h4 align="center">
   <a href="https://docs.scaffoldeth.io">Documentation</a> |
   <a href="https://scaffoldeth.io">Website</a>
 </h4>
 
+
+#  Publishing Hub and Book Hub Market Place
 🧪This app is a On-Chain digital Book and Comic Book Publishing service with a built in marketplace.
 Users can buy and sell digital books and comic books. This brings the power of the blockchain to the masses.
 
@@ -82,3 +84,10 @@ To know more about its features, check out our [website](https://scaffoldeth.io)
 We welcome contributions to Scaffold-ETH 2!
 
 Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+
+I've simplified the publishing process for nate token purchases
+Must create logic for withdrawl from the Book contract to tranfers a portion back to the Publishing Factory.
+We can also put the Creation Fee back in a test charging for creating books in native and USDC then MHGD.
+
+
+bafybeic3uzulj7ho42dymwb2uvghpp6ivsdqffqflaotuad62tkk3xq35m -IPFS Mock Book PDF file
