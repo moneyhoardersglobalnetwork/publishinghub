@@ -1,11 +1,14 @@
-# 🏗 Scaffold-ETH 2
+# Decentralized Digital Book Publishing and Market Place
 
 <h4 align="center">
   <a href="https://docs.scaffoldeth.io">Documentation</a> |
   <a href="https://scaffoldeth.io">Website</a>
 </h4>
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+🧪This app is a On-Chain digital Book and Comic Book Publishing service with a built in marketplace.
+Users can buy and sell digital books and comic books. This brings the power of the blockchain to the masses.
+
+Upgrades can later be made to the app to include more features. Like subcription based services, a book review system, and more. Think a user subcribing to a specific author and earn rewards for their book purchases.
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
 
@@ -27,7 +30,7 @@ Before you begin, you need to install the following tools:
 
 ## Quickstart
 
-To get started with Scaffold-ETH 2, follow the steps below:
+To get started with the app, follow the steps below:
 
 1. Clone this repo & install dependencies
 

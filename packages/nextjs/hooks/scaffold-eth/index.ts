@@ -1,3 +1,4 @@
+"use client";
 export * from "./useAnimationConfig";
 export * from "./useBurnerWallet";
 export * from "./useContractLogs";
