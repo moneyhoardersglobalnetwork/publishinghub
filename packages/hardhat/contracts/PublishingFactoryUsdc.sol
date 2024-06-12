@@ -5,7 +5,7 @@ import "./Book.sol";  // Assume Book.sol contains your original Book contract
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 
-contract PublishingFactoryNative is Ownable {
+contract PublishingFactoryUsdc is Ownable {
   // Struct to keep more information about each Book
   struct BookInfo {
       address bookAddress;
@@ -18,7 +18,9 @@ contract PublishingFactoryNative is Ownable {
   // Array to keep track of all deployed Books' addresses
   address[] public bookAddresses;
   //Charge a fee to create a new Book
-  uint256 public fee = 10000000000000000;
+  uint256 public feeForCreation; // Fee for creating a new book
+  IERC20 public usdcToken; // USDC is our fee token //mUSDC on Testnets
+  
 
   // Mapping from book address to BookInfo struct
   mapping(address => BookInfo) public books;
@@ -30,13 +32,18 @@ contract PublishingFactoryNative is Ownable {
   event BookCoverIpfsCidSet(address indexed bookAddress, string ipfsCoverCid);
   event CreationFeeUpdated(uint256 newFee);
   error NothingToWithdraw();
+  //We pass are fee token address to the constructor hard coded
+   constructor(uint256 _creationFee) {
+        usdcToken = IERC20(0xc4BdC44885Ca364962272E5Fd026C05Be9AD924A); // mUSDC on Testnets a mock USDC token
+        feeForCreation = _creationFee;
+    }
 
 
-  function createBook(string memory name, string memory symbol, uint256 bookPrice, string memory baseURI) public payable returns (address) {
+  function createBook(string memory name, string memory symbol, uint256 bookPrice, string memory baseURI, uint256 usdcAmount) external returns (address) {
     console.log("Book's baseURI is %s", baseURI);
-    // msg.value: built-in global variable that represents the amount of ether sent with the transaction
-    //Here we reguire a 0.01 fee in the chains native asset to create a new book
-		 require(msg.value >= 0.01 ether, "Failed to send enough value");
+    // UCDS is our fee token
+     require(usdcToken.balanceOf(msg.sender) >= feeForCreation, "You need more USDC to Mint MHGD Tokens SORRY!");
+      require(usdcToken.transferFrom(msg.sender, address(this), usdcAmount), "Transfer of USDC failed");
     // Deploy a new Book contract and set its base URI, book price, and token name
     Book newBook = new Book(name, symbol, bookPrice, baseURI, msg.sender);
 
@@ -63,7 +70,7 @@ contract PublishingFactoryNative is Ownable {
     return address(newBook);
   }
 
-  //function to set ipfsCid of the book
+  //function to set ipfsCid of the book we use https: CID for direct linking from frontend
   function setBookIpfsCid(address bookAddress, string memory newIpfsCid) public {
       // Look up the book info from the mapping
       BookInfo memory bookToSetIpfsCid = books[bookAddress];
@@ -79,7 +86,7 @@ contract PublishingFactoryNative is Ownable {
       emit BookIpfsCidSet(bookAddress, newIpfsCid);
   }
 
-    //function to set ipfsCoverCid of the book
+    //function to set ipfsCoverCid of the book we use https: CID for direct linking from frontend
   function setBookCoverIpfsCid(address bookAddress, string memory newIpfsCoverCid) public {
       // Look up the book info from the mapping
       BookInfo memory bookToSetIpfsCoverCid = books[bookAddress];
@@ -154,7 +161,7 @@ contract PublishingFactoryNative is Ownable {
     return bookIpfsCoverCid;
 	}
 
- /**
+  /**
 	 * Function that allows the owner to withdraw all the Ether in the contract
 	 * The function can only be called by the owner of the contract as defined by the onlyOwner modifier
 	 */
@@ -163,7 +170,7 @@ contract PublishingFactoryNative is Ownable {
 		require(success, "Failed to send Ether");
 	}
 
-   // Add in case we need to withdraw yolo tokens
+  // Allows factory owner to withdraw the USDC tokens by passing in the USDC token address
      function withdrawToken(
         address _beneficiary,
         address _token

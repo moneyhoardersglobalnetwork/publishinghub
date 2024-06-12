@@ -26,7 +26,7 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const tokenSymbol = ""; //Empty string
   const _bookPrice = 0; //Empty string
   const baseURI_ = ""; //Empty string
-  const _creationFee = 0; //Empty string
+  const _creationFee = 6000000; //Empty string
   const addressOwner = deployer; //Deployer is Owner
 
   await deploy("YourContract", {
@@ -63,6 +63,16 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
     from: deployer,
     // Contract constructor arguments
     args: [],
+    log: true,
+    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    autoMine: true,
+  });
+
+  await deploy("PublishingFactoryUsdc", {
+    from: deployer,
+    // Contract constructor arguments
+    args: [_creationFee],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.

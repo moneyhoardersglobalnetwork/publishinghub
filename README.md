@@ -6,7 +6,7 @@ actively in development
 </h4>
 
 
-#  Publishing Hub and Book Hub Market Place
+#  Publishing Hub and Market Place
 🧪This app is a On-Chain digital Book and Comic Book Publishing service with a built in marketplace.
 Users can buy and sell digital books and comic books. This brings the power of the blockchain to the masses.
 
@@ -79,15 +79,32 @@ Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building wit
 
 To know more about its features, check out our [website](https://scaffoldeth.io).
 
-## Contributing to Scaffold-ETH 2
+## Contributing to Publishing Hub
 
-We welcome contributions to Scaffold-ETH 2!
+We welcome contributions to Publishing Hub!
 
 Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
 
+
+## To Do List
+
+I want add a description section to the assets
 I've simplified the publishing process for nate token purchases
 Must create logic for withdrawl from the Book contract to tranfers a portion back to the Publishing Factory.
 We can also put the Creation Fee back in a test charging for creating books in native and USDC then MHGD.
+I want to change all book references to PublishedAsset because not just books can be published.
+The entire concept is empowering creators to generate income and monetize their work.
+
+https://web3.storage/ - Web3 Storage using IPFS for Authors.
+https://console.web3.storage/ - Authors can easily get the CID links for creating their assets.
 
 
-bafybeic3uzulj7ho42dymwb2uvghpp6ivsdqffqflaotuad62tkk3xq35m -IPFS Mock Book PDF file
+
+
+
+//Update these with the https link to the IPFS files be sure to add file extensions to the end of the links.
+//Naming of files before upload is important to ensure author doesnt have to reset CIDs
+https://bafybeiahc326k4bww2dub5s3ylpbgcvzh6qrkqru4gn7lw5ebztsn4awba.ipfs.w3s.link/Hoarder%20Labs%20Manifest.pdf -IPFS Hoarder Labs Manfest PDF
+https://bafybeic3uzulj7ho42dymwb2uvghpp6ivsdqffqflaotuad62tkk3xq35m.ipfs.w3s.link/MHGNMockBooks.pdf -IPFS Mock Book PDF file
+https://bafybeicn3agxjjh4dac6srokrbpmehcalmdte3mhtod4gkz4zycxvlv3gu.ipfs.w3s.link/hhg_cover.jpg -IPFS The Hitchhiker's Guide
+https://bafybeiahavl4cjqcqr5vm4pzadk3o3oysm7y4yxuaem5ehu45nqpanemi4.ipfs.w3s.link/download.jpeg -IPFS Mock Book Cover Image Detective Comics
