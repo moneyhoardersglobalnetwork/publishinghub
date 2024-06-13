@@ -9,7 +9,6 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { storeOnIPFS } from "~~/hooks/helper/nftStorageHelper";
 import { useNativeCurrencyPrice, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
-
 export function PublishBook() {
   const [visible, setVisible] = useState(true);
   const { writeContractAsync } = useScaffoldWriteContract("BookFactory");
@@ -158,10 +157,13 @@ export function PublishBook() {
                 <div className="flex gap-5 bg-white bg-opacity-80 z-0 p-7 rounded-2xl shadow-lg">
                   <span className="text-3xl">👋🏻</span>
                   <div>
-                    <div className="text-black">In this page you can mint your own book.</div>
+                    <div className="text-black">In this page you can mint new revenue generating assets.</div>
                     <div className="mt-2 text-black">
-                      Publishing your book on-chain will allow you to sell it in the marketplace. You we receive 70% of
-                      the revenue.
+                      Publishing your assets on-chain will allow users to buy rights to a unique non-fungable token
+                      version of your asset published. Publishing Hub only charges for initial publishing
+                    </div>
+                    <div className="mt-2 text-black">
+                      Follow the guide links on the Home page to get your CIDs for the Assets you want to publish.
                     </div>
                   </div>
                 </div>
@@ -176,7 +178,7 @@ export function PublishBook() {
 
             <div className="flex flex-col mt-6 px-7 py-8 bg-white opacity-100 rounded-2xl shadow-lg border-2 border-primary">
               <form className="space-y-4" onSubmit={handleSubmit}>
-                <span className="text-4xl sm:text-6xl text-black">Publish a new book</span>
+                <span className="text-4xl sm:text-6xl text-black">Publish a new asset</span>
                 <input
                   type="text"
                   placeholder="Book Title"
